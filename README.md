@@ -11,7 +11,7 @@ cd yii2-blog
 composer install
 ```
 
-如果不能使用composer，请前在这里下载 http://www.yiibook.com/download/yii2-blog.tgz
+如果不能使用composer，请前在这里下载 http://121.199.39.90/yii2-blog.tgz
 
 # 部署
 
