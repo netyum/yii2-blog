@@ -70,7 +70,7 @@ class ChangePassForm extends Model
         }
         $user->salt = Str::random(10);
         $user->password = $user->generatePassword($this->password);
-        return $user->save();
+        return $user->save(false);
     }
 
 }

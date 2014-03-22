@@ -69,7 +69,7 @@ class PortraitForm extends Model
 
         //保存新头像名到数据库
         $user->portrait = $filename;
-        if (!$user->save()) {
+        if (!$user->save(false)) {
             $this->addError('portrait', '头像修改失败');
             return false;
         }
