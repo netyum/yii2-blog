@@ -12,7 +12,6 @@ use app\models\User;
  * @property string $content
  * @property string $created_at
  * @property string $updated_at
- * @property string $deleted_at
  */
 class Comment extends \yii\db\ActiveRecord
 {
@@ -33,7 +32,7 @@ class Comment extends \yii\db\ActiveRecord
             [['user_id', 'article_id', 'content', 'created_at', 'updated_at'], 'required'],
             [['user_id', 'article_id'], 'integer'],
             [['content'], 'string', 'min' => 3],
-            [['created_at', 'updated_at', 'deleted_at'], 'safe']
+            [['created_at', 'updated_at'], 'safe']
         ];
     }
 
@@ -49,7 +48,6 @@ class Comment extends \yii\db\ActiveRecord
             'content' => '评论内容',
             'created_at' => '创建时间',
             'updated_at' => '更新时间',
-            'deleted_at' => 'Deleted At',
         ];
     }
 
