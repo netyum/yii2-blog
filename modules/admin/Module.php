@@ -19,7 +19,7 @@ class Module extends \yii\base\Module
     public function beforeAction($action)
     {
         
-        if (Yii$app->user->isGuest || !Yii::$app->user->identity->isAdmin) {
+        if (Yii::$app->user->isGuest || !Yii::$app->user->identity->isAdmin) {
             return Yii::$app->response->redirect(['/site/index']);
         }
         return true;
