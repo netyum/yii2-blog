@@ -1,0 +1,55 @@
+body, h1, .h1, h2, .h2, h3, .h3, h4, .h4, .lead
+{
+    font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+}
+
+body
+{
+    padding-bottom: 0;
+    background-color: #f3f3ff;
+}
+.navbar-inverse {
+    background-color: #F8F8F8;
+    border-color: #E7E7E7;
+}
+.navbar-inverse .navbar-brand {
+    color: #777777;
+}
+.navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {
+    background-color: rgba(0, 0, 0, 0);
+    color: #5E5E5E;
+}
+.navbar-inverse .navbar-text {
+    color: #777777;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: #777777;
+}
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+    background-color: rgba(0, 0, 0, 0);
+    color: #333333;
+}
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+    background-color: #E7E7E7;
+    color: #555555;
+}
+.navbar-inverse .navbar-nav > .disabled > a, .navbar-inverse .navbar-nav > .disabled > a:hover, .navbar-inverse .navbar-nav > .disabled > a:focus {
+    background-color: rgba(0, 0, 0, 0);
+    color: #CCCCCC;
+}
+.navbar-inverse .navbar-toggle {
+    border-color: #DDDDDD;
+}
+.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+    background-color: #DDDDDD;
+}
+.navbar-inverse .navbar-toggle .icon-bar {
+    background-color: #CCCCCC;
+}
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    border-color: #E7E7E7;
+}
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    background-color: #E7E7E7;
+    color: #555555;
+}
