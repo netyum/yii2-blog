@@ -7,6 +7,7 @@ use \yii\base\Model;
 use app\models\User;
 use app\models\ar\Activation;
 
+use \Carbon\Carbon;
 /**
  * SignInForm is the model behind the login form.
  */
