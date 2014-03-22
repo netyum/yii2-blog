@@ -1,0 +1,45 @@
+{
+	"name": "netyum/yii2-blog",
+	"description": "Yii 2 Blog",
+	"keywords": ["yii2", "framework", "blog", "netyum"],
+	"homepage": "https://github.com/netyum/yii2-blog",
+	"type": "project",
+	"license": "BSD-3-Clause",
+	"minimum-stability": "dev",
+	"require": {
+		"php": ">=5.4.0",
+		"yiisoft/yii2": "*",
+		"yiisoft/yii2-bootstrap": "*",
+		"yiisoft/yii2-swiftmailer": "*",
+		"nesbot/carbon": "1.*",
+		"yzalis/identicon": "1.0.*@dev",
+		"yiisoft/yii2-imagine": "dev-master"
+	},
+	"require-dev": {
+		"yiisoft/yii2-codeception": "*",
+		"yiisoft/yii2-debug": "*",
+		"yiisoft/yii2-gii": "*"
+	},
+	"suggest": {
+		"codeception/codeception": "Codeception, 1.8.*@dev is currently works well with Yii.",
+		"codeception/specify": "BDD style code blocks for PHPUnit and Codeception",
+		"codeception/verify": "BDD Assertions for PHPUnit and Codeception"
+	},
+	"scripts": {
+		"post-create-project-cmd": [
+			"yii\\composer\\Installer::setPermission"
+		]
+	},
+	"config": {
+		"process-timeout": 1800
+	},
+	"extra": {
+		"writable": [
+			"runtime",
+			"web/assets"
+		],
+		"executable": [
+			"yii"
+		]
+	}
+}
