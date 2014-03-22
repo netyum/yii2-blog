@@ -73,7 +73,7 @@ class SignInForm extends Model
         if ($this->validate()) {
             $isLogin = Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600*24*30 : 0);
             if ($isLogin) {
-                User::findByEmail($model->email, true)->updateAttributes(['signin_at'=>new Carbon]);
+                User::findByEmail($this->email, true)->updateAttributes(['signin_at'=>new Carbon]);
                 return true;
             }
         }
