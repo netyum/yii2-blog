@@ -10,10 +10,10 @@ use app\helpers\StringHelper as Str;
 
 $this->title = '添加新文章 :: 后台管理 :: ' . Yii::$app->id;
 
-$this->registerJsFile("@web/assets/bootstrap/bootstrap-markdown/js/markdown.js", ['\yii\web\YiiAsset']);
-$this->registerJsFile("@web/assets/bootstrap/bootstrap-markdown/js/to-markdown.js", ['\yii\web\YiiAsset']);
-$this->registerJsFile("@web/assets/bootstrap/bootstrap-markdown/js/bootstrap-markdown.js", ['\yii\web\YiiAsset']);
-$this->registerCssFile("@web/assets/bootstrap/bootstrap-markdown/css/bootstrap-markdown.min.css", ['\yii\web\YiiAsset']);
+$this->registerJsFile("@web/bootstrap/bootstrap-markdown/js/markdown.js", ['\yii\web\YiiAsset']);
+$this->registerJsFile("@web/bootstrap/bootstrap-markdown/js/to-markdown.js", ['\yii\web\YiiAsset']);
+$this->registerJsFile("@web/bootstrap/bootstrap-markdown/js/bootstrap-markdown.js", ['\yii\web\YiiAsset']);
+$this->registerCssFile("@web/bootstrap/bootstrap-markdown/css/bootstrap-markdown.min.css", ['\yii\web\YiiAsset']);
 ?>
 <?php
 if (Yii::$app->session->hasFlash('create_artcile')) :

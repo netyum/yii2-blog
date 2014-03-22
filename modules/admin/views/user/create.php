@@ -8,8 +8,8 @@ use \yii\helpers\ArrayHelper;
 use app\helpers\StringHelper as Str;
 
 $this->title = '添加新用户 :: 后台管理 :: ' . Yii::$app->id;
-$this->registerJsFile("@web/assets/bootstrap/bootstrap-switch/js/bootstrap-switch.min.js", ['\yii\web\YiiAsset']);
-$this->registerCssFile("@web/assets/bootstrap/bootstrap-switch/css/bootstrap3/bootstrap-switch.min.css", ['\yii\web\YiiAsset']);
+$this->registerJsFile("@web/bootstrap/bootstrap-switch/js/bootstrap-switch.min.js", ['\yii\web\YiiAsset']);
+$this->registerCssFile("@web/bootstrap/bootstrap-switch/css/bootstrap3/bootstrap-switch.min.css", ['\yii\web\YiiAsset']);
 
 $js=<<<EOF
     jQuery('input[type="checkbox"],[type="radio"]').bootstrapSwitch();
