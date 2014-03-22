@@ -5,7 +5,7 @@ namespace app\models\form;
 use \Yii;
 use \yii\base\Model;
 use app\models\User;
-use app\models\PasswordReminder;
+use app\models\ar\PasswordReminder;
 use app\helpers\StringHelper as Str;
 use \Carbon\Carbon;
 
