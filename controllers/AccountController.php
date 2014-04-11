@@ -9,7 +9,7 @@ use app\models\search\CommentSearch;
 use app\models\ar\Comment;
 use \yii\helpers\FileHelper;
 use \yii\web\UploadedFile;
-use \yii\web\AccessControl;
+use \yii\filters\AccessControl;
 
 class AccountController extends \yii\web\Controller
 {
@@ -66,7 +66,7 @@ class AccountController extends \yii\web\Controller
     public function actionMyComment($id="")
     {
         if (Yii::$app->request->isPost && $id!='') {
-            $model = Comment::find($id);
+            $model = Comment::findOne($id);
 
             if ($model->user_id == Yii::$app->user->identity->id) {
                 Yii::$app->session->setFlash('my_comment_delete_success', '评论删除成功');

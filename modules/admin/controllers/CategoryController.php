@@ -7,8 +7,8 @@ use app\models\ar\Category;
 use app\models\search\CategorySearch;
 use \yii\web\Controller;
 use \yii\web\NotFoundHttpException;
-use \yii\web\VerbFilter;
-use \yii\web\AccessControl;
+use \yii\filters\VerbFilter;
+use \yii\filters\AccessControl;
 
 /**
  * CategoryController implements the CRUD actions for Category model.
@@ -114,7 +114,7 @@ class CategoryController extends Controller
      */
     protected function findModel($id)
     {
-        if ($id !== null && ($model = Category::find($id)) !== null) {
+        if ($id !== null && ($model = Category::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('请求页面不存在');

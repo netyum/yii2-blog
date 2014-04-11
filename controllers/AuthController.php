@@ -4,8 +4,8 @@ namespace app\controllers;
 
 use \Yii;
 use \yii\web\HttpException;
-use \yii\web\AccessControl;
-use \yii\web\VerbFilter;
+use \yii\filters\AccessControl;
+use \yii\filters\VerbFilter;
 use app\models\ar\PasswordReminder;
 use app\models\form\SignInForm;
 use app\models\form\SignUpForm;
@@ -104,7 +104,7 @@ class AuthController extends \yii\web\Controller
     public function actionSignUpSuccess($email)
     {
         $email = base64_decode($email);
-        $activation = Activation::find()->where(['email'=>$email])->one();
+        $activation = Activation::findOne(['email'=>$email]);
         if (is_null($activation)) {
             throw new NotFoundHttpException('请求页面不存在');
         }
@@ -123,7 +123,7 @@ class AuthController extends \yii\web\Controller
     public function actionActivate($activationCode)
     {
         // 数据库验证令牌
-        $activation = Activation::find()->where(['token'=>$activationCode])->one();
+        $activation = Activation::findOne(['token'=>$activationCode]);
         if (is_null($activation)) {
             throw new NotFoundHttpException('请求页面不存在');
         }
@@ -163,7 +163,7 @@ class AuthController extends \yii\web\Controller
      */
     public function actionResetPassword($token)
     {
-        $passwordReminder = PasswordReminder::find()->where('token=:token', array(':token'=>$token))->one();
+        $passwordReminder = PasswordReminder::findOne('token'=>$token));
         if (is_null($passwordReminder)) {
             throw new NotFoundHttpException('请求页面不存在');
         }

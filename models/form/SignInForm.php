@@ -84,7 +84,7 @@ class SignInForm extends Model
     public function validateActivation()
     {
         if (!$this->hasErrors()) {
-            $activation = Activation::find()->where(['email'=>$this->email])->one();
+            $activation = Activation::findOne(['email'=>$this->email]);
             if ($activation) {
                 $this->addError('email', '邮箱未激活');
             }

@@ -35,7 +35,7 @@ $form = ActiveForm::begin([
 ]); ?>
     <h2 class="form-register-heading">更改您的头像</h2>
 <?php
-$user = User::find(Yii::$app->user->identity->id);
+$user = User::findOne(Yii::$app->user->identity->id);
 ?>
 <img class="img-thumbnail" width="220" height="220" src="<?php echo $user->portraitLarge;?>" alt="头像（大）">
 <img class="img-thumbnail" width="128" height="128" src="<?php echo $user->portraitLarge;?>" alt="头像（中）">

@@ -38,7 +38,7 @@ class PortraitForm extends Model
 
     public function changePortrait(){
 
-        $user = User::find(Yii::$app->user->identity->id);
+        $user = User::findOne(Yii::$app->user->identity->id);
         if (is_null($user)) {
             $this->addError('portrait', '用户不存在');
             return false;

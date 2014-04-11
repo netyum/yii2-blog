@@ -7,8 +7,8 @@ use app\models\User;
 use app\models\search\UserSearch;
 use \yii\web\Controller;
 use \yii\web\NotFoundHttpException;
-use \yii\web\VerbFilter;
-use \yii\web\AccessControl;
+use \yii\filters\VerbFilter;
+use \yii\filters\AccessControl;
 
 
 use app\helpers\StringHelper as Str;
@@ -107,7 +107,7 @@ class UserController extends Controller
      */
     protected function findModel($id)
     {
-        if ($id !== null && ($model = User::find($id)) !== null) {
+        if ($id !== null && ($model = User::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('请求页面不存在');

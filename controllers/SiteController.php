@@ -3,7 +3,7 @@
 namespace app\controllers;
 
 use \Yii;
-use \yii\web\AccessControl;
+use \yii\filters\AccessControl;
 use \yii\web\Controller;
 use \yii\web\HttpException;
 use \yii\data\Pagination;
@@ -56,7 +56,7 @@ class SiteController extends Controller
             }
         }
 
-        $article = Article::find()->where('slug=:slug', [':slug'=>$slug])->one();
+        $article = Article::findOne(['slug'=>$slug]);
         if (is_null($article)) {
             throw new NotFoundHttpException('请求页面不存在');
         }

@@ -126,7 +126,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
      */
     public static function findByEmail($email, $isModel=false)
     {
-        $user = self::find()->where(['email'=>$email])->one();
+        $user = self::findOne(['email'=>$email]);
 
         if ($user) {
             if ($isModel) return $user;
@@ -176,7 +176,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
      */
     public static function findIdentity($id)
     {
-        $user = self::find($id);
+        $user = self::findOne($id);
         if ($user) {
             return new static($user);
         }

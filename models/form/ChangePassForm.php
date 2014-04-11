@@ -51,7 +51,7 @@ class ChangePassForm extends Model
     {
         if (!$this->hasErrors()) {
             $id = Yii::$app->user->identity->id;
-            $user = User::find($id);
+            $user = User::findOne($id);
             if (!$user || !$user->validatePassword($this->password_old)) {
                 $this->addError('oldpassword', '原始密码不正确');
             }
@@ -64,7 +64,7 @@ class ChangePassForm extends Model
      */
     public function changePassword() {
         $id = Yii::$app->user->identity->id;
-        $user = User::find($id);
+        $user = User::findOne($id);
         if (is_null($user)) {
             return false;
         }

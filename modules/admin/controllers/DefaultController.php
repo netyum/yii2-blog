@@ -3,7 +3,7 @@
 namespace app\modules\admin\controllers;
 
 use \yii\web\Controller;
-use \yii\web\AccessControl;
+use \yii\filters\AccessControl;
 
 class DefaultController extends Controller
 {

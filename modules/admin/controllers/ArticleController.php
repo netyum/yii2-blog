@@ -7,8 +7,8 @@ use app\models\ar\Article;
 use app\models\search\ArticleSearch;
 use \yii\web\Controller;
 use \yii\web\NotFoundHttpException;
-use \yii\web\VerbFilter;
-use \yii\web\AccessControl;
+use \yii\filters\VerbFilter;
+use \yii\filters\AccessControl;
 
 /**
  * ArticleController implements the CRUD actions for Article model.
@@ -114,7 +114,7 @@ class ArticleController extends Controller
      */
     protected function findModel($id)
     {
-        if ($id !== null && ($model = Article::find($id)) !== null) {
+        if ($id !== null && ($model = Article::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('请求页面不存在');
