@@ -7,13 +7,9 @@ use \yii\widgets\ActiveForm;
 use \yii\helpers\ArrayHelper;
 use app\models\ar\Category;
 use app\helpers\StringHelper as Str;
+use kartik\markdown\MarkdownEditor;
 
 $this->title = '编辑文章 :: 后台管理 :: ' . Yii::$app->id;
-
-$this->registerJsFile("@web/bootstrap/bootstrap-markdown/js/markdown.js", ['\yii\web\YiiAsset']);
-$this->registerJsFile("@web/bootstrap/bootstrap-markdown/js/to-markdown.js", ['\yii\web\YiiAsset']);
-$this->registerJsFile("@web/bootstrap/bootstrap-markdown/js/bootstrap-markdown.js", ['\yii\web\YiiAsset']);
-$this->registerCssFile("@web/bootstrap/bootstrap-markdown/css/bootstrap-markdown.min.css", ['\yii\web\YiiAsset']);
 ?>
 <?php
 if (Yii::$app->session->hasFlash('update_artcile')) :
@@ -46,10 +42,11 @@ $tab1 .= $form->field($model, 'title')->textInput();
 $slug = Html::tag('span', rtrim(Yii::$app->request->getHostInfo(), '/') .'/', ['class'=>'input-group-addon']);
 $slugTemplate = "{label}\n<div class=\"input-group\">{$slug}{input}</div>\n{hint}\n{error}";
 $tab1 .= $form->field($model, 'slug', ['template'=>$slugTemplate])->textInput();
-$tab1 .= $form->field($model, 'content')->textarea([
-    "data-provide"=>"markdown",
-    "rows"=>10,
+$tab1 .= MarkdownEditor::widget([
+    'model' => $model,
+    'attribute' => 'content'
 ]);
+
 $tab2 = $form->field($model, 'meta_title')->textInput();
 $tab2 .= $form->field($model, 'meta_description')->textInput();
 $tab2 .= $form->field($model, 'meta_keywords')->textInput();

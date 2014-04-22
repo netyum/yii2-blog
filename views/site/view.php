@@ -2,7 +2,7 @@
 
 use \yii\helpers\Html;
 use \yii\widgets\DetailView;
-use \yii\helpers\Markdown;
+use kartik\markdown\Markdown;
 use \yii\widgets\ActiveForm;
 
 use app\helpers\StringHelper as Str;
@@ -19,6 +19,10 @@ if (trim($article->meta_keywords) != '')
 
 if (trim($article->meta_title) != '')
     $this->registerMetaTag(['name'=>'title', 'content'=>$article->meta_title]);
+
+$this->registerJsFile("@web/highlight/highlight.pack.js");
+$this->registerCssFile("@web/highlight/styles/github.css");
+$this->registerJs("hljs.initHighlightingOnLoad();");
 ?>
 
 <div class="col-xs-12 col-sm-9">
@@ -26,7 +30,7 @@ if (trim($article->meta_title) != '')
         <div class="col-6 col-sm-6 col-lg-12 panel">
             <h2><?php echo $article->title;?></h2>
             <hr />
-            <p><?php echo Markdown::process($article->content, 'gfm');?></p>
+            <p><?php echo Markdown::process($article->content);?></p>
             <a name="comments"></a>
             <p>
                 <i class="glyphicon glyphicon-calendar"></i><span><?php echo $article->created_at;?>（<?php echo Str::friendlyDate($article->created_at);?>）</span>

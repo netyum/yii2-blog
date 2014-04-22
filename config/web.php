@@ -12,7 +12,32 @@ $config = [
     'extensions' => require(__DIR__ . '/../vendor/yiisoft/extensions.php'),
     'language' => 'zh-CN',
     'modules' => [
-        'admin' => 'app\modules\admin\Module'
+        'admin' => 'app\modules\admin\Module',
+        'markdown' => [
+            // the module class
+            'class' => 'kartik\markdown\Module',
+
+            // the controller action route used for markdown editor preview
+            'previewAction' => '/markdown/parse/preview',
+
+            // the controller action route used for downloading the markdown exported file
+            'downloadAction' => '/markdown/parse/download',
+
+            // the list of custom conversion patterns for post processing
+            'customConversion' => [
+                '<table>' => '<table class="table table-bordered table-striped">'
+            ],
+
+            // whether to use PHP SmartyPantsTypographer to process Markdown output
+            'smartyPants' => true,
+
+            // array the the internalization configuration for this module
+            'i18n' => [
+                'class' => 'yii\i18n\PhpMessageSource',
+                'basePath' => '@markdown/messages',
+                'forceTranslation' => true
+            ]
+        ]
     ],
     'components' => [
         'cache' => [

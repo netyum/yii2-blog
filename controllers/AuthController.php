@@ -163,7 +163,7 @@ class AuthController extends \yii\web\Controller
      */
     public function actionResetPassword($token)
     {
-        $passwordReminder = PasswordReminder::findOne('token'=>$token));
+        $passwordReminder = PasswordReminder::findOne(['token'=>$token]);
         if (is_null($passwordReminder)) {
             throw new NotFoundHttpException('请求页面不存在');
         }
