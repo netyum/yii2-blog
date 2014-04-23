@@ -44,10 +44,10 @@ class m140422_024415_init extends \yii\db\Migration
         ]);
         $this->createIndex('category_name_unique', '{{%category}}', 'name', true);
 
-        if ($this->db->driverName === 'mysql') {
-            $this->addForeignKey('f', '{{%category}}', 'id', '{{%article}}', 'category_id');
-            $this->addForeignKey('f', '{{%article}}', 'category_id', '{{%category}}', 'id');
-        }
+        //if ($this->db->driverName === 'mysql') {
+        //    $this->addForeignKey('f', '{{%category}}', 'id', '{{%article}}', 'category_id');
+        //    $this->addForeignKey('f', '{{%article}}', 'category_id', '{{%category}}', 'id');
+        //}
 
         /*
         -- activation
