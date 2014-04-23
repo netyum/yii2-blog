@@ -4,7 +4,7 @@ use yii\db\Schema;
 use Carbon\Carbon;
 class m140422_024415_init extends \yii\db\Migration
 {
-    public function up()
+    public function safeUp()
     {
         $tableOptions = null;
         if ($this->db->driverName === 'mysql') {
@@ -16,7 +16,7 @@ class m140422_024415_init extends \yii\db\Migration
         */
         $this->createTable('{{%article}}', [
             'id' => Schema::TYPE_PK,
-            'category_id' => Schema::TYPE_INTEGER .' NOT NULL',
+            'category_id' => Schema::TYPE_INTEGER ." NOT NULL DEFAULT '0'",
             'user_id' => Schema::TYPE_INTEGER .' NOT NULL',
             'title' => Schema::TYPE_STRING . ' NOT NULL',
             'slug' => Schema::TYPE_STRING . ' NOT NULL',
@@ -28,9 +28,9 @@ class m140422_024415_init extends \yii\db\Migration
             'created_at' => Schema::TYPE_DATETIME . ' NOT NULL',
             'updated_at' => Schema::TYPE_DATETIME . ' NOT NULL'
         ]);
-
         $this->createIndex('article_title_unique', '{{%article}}', 'title', true);
         $this->createIndex('article_slug_unique', '{{%article}}', 'slug', true);
+        $this->createIndex('article_category_id_index', '{{%article}}', 'category_id');
 
         /*
         -- category
@@ -44,10 +44,10 @@ class m140422_024415_init extends \yii\db\Migration
         ]);
         $this->createIndex('category_name_unique', '{{%category}}', 'name', true);
 
-        //if ($this->db->driverName === 'mysql') {
-        //    $this->addForeignKey('f', '{{%category}}', 'id', '{{%article}}', 'category_id');
-        //    $this->addForeignKey('f', '{{%article}}', 'category_id', '{{%category}}', 'id');
-        //}
+        if ($this->db->driverName === 'mysql') {
+            $this->addForeignKey('category_article_f', '{{%category}}', 'id', '{{%article}}', 'category_id');
+            $this->addForeignKey('article_category_f', '{{%article}}', 'category_id', '{{%category}}', 'id');
+        }
 
         /*
         -- activation
@@ -116,7 +116,7 @@ class m140422_024415_init extends \yii\db\Migration
         ]);
     }
 
-    public function down()
+    public function safeDown()
     {
         $tables = array('activation', 'article', 'category', 'comment', 'password_reminder', 'user');
         foreach($tables as $table) {

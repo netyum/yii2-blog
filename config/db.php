@@ -1,12 +1,12 @@
 <?php
-
 /*
 return [
     'class' => '\yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=yii2_blog',
+    'dsn' => 'mysql:host=172.16.10.47;dbname=test',
     'username' => 'root',
-    'password' => '',
+    'password' => '123456',
     'charset' => 'utf8',
+    'tablePrefix'=>'yii2_'
 ];
 */
 
