@@ -81,5 +81,5 @@ if ($model->getErrors()) :
 endif;
 ?>
 
-<?php echo Html::submitButton('登 录', ['class' => 'btn btn-lg btn-primary btn-block']) ?>
+<?php echo Html::submitButton('登 录', ['class' => 'btn btn-lg btn-primary btn-block', 'name'=>'login-button']) ?>
 <?php ActiveForm::end(); ?>
