@@ -1,23 +1,28 @@
-yii2-blog
+yii2 blog
 =========
 
-a blog web app for yii2
+# 源码
 
+https://github.com/netyum/yii2-blog
 
 # 安装
 
-```
+```bash
 cd yii2-blog
 composer install
 ```
 
-如果不能使用composer，请前在这里下载 http://121.199.39.90/yii2-blog.tgz
+#初始化数据
+
+```bash
+php yii mirgate
+```
 
 # 部署
 
 通常向web目录指向yii2-blog/web即可，需要配置一个yii2-blog/config/mail.php, 设置一个你的smtp
 
-```
+```php
 <?php
 return [
     'class' => 'yii\swiftmailer\Mailer',
@@ -37,9 +42,9 @@ return [
 ];
 ```
 
-默认管理员帐号是 admin@yiibook 
+默认管理员帐号是 admin@yiibook.com
 密码是  yiibook
 
 # 演示地址
 
-http://110.76.45.201
+http://yii2-blog.yiibook.com
