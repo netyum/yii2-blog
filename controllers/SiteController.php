@@ -8,6 +8,7 @@ use \yii\web\Controller;
 use \yii\web\HttpException;
 use \yii\data\Pagination;
 use \yii\web\VerbFilter;
+use \yii\web\NotFoundHttpException;
 use app\models\ar\Comment;
 use app\models\ar\Article;
 

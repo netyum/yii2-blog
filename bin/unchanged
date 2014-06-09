@@ -1,0 +1,9 @@
+#!/bin/sh
+arg="--no-assume-unchanged"
+if [ "$1" == "" ]; then
+    arg="--assume-unchanged"
+fi
+git update-index $arg config/mail.php
+git update-index $arg config/db.php
+git update-index $arg composer.json
+git update-index $arg web/index.php
