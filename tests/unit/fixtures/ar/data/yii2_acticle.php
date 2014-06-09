@@ -1,3 +1,5 @@
+<?php
+$content= <<<EOF
 yii2 blog
 =========
 
@@ -48,3 +50,17 @@ return [
 # 演示地址
 
 http://yii2-blog.yiibook.com
+EOF;
+
+return [
+    'one' => [
+        'category_id' => 1,
+		'user_id' => 1,
+        'title' => 'yii2-blog说明',
+		'slug' => 'readme',
+		'content' => $content,
+        'comments_count' => 0,
+		'created_at' => '2014-04-29 15:41:38',
+		'updated_at' => '2014-04-29 15:41:38'
+    ],
+];
