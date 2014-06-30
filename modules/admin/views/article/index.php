@@ -22,7 +22,7 @@ echo GridView::widget([
     'columns' => [
         [
             'attribute' => 'title',
-            'value' => function($model, $index, $widget) {
+            'value' => function ($model, $index, $widget) {
                 $icon = \yii\helpers\Html::tag('i', '', ['style'=>'font-size:0.5em;', 'class'=>'glyphicon glyphicon-share']);
                 $icon = \yii\helpers\Html::a($icon, ['/site/view', 'slug'=>$model->slug], ['target'=>'_blank']);
                 return $icon . \yii\helpers\Html::encode($model->title);
@@ -32,7 +32,7 @@ echo GridView::widget([
         'comments_count',
         [
             'attribute' => 'created_at',
-            'value' => function($model, $index, $widget) {
+            'value' => function ($model, $index, $widget) {
                     return $model->created_at.' ('. app\helpers\StringHelper::friendlyDate($model->created_at).')';
                 }
         ],
@@ -41,10 +41,10 @@ echo GridView::widget([
             'class' => 'yii\grid\ActionColumn',
             'template'=>'{update} {delete}',
             'buttons' => [
-                'update' => function($url, $model) {
+                'update' => function ($url, $model) {
                         return yii\helpers\Html::a('编辑', ['update', 'id'=>$model->id], ['class'=>'btn btn-xs']);
                     },
-                'delete' => function($url, $model) {
+                'delete' => function ($url, $model) {
                         return "<a onclick=\"window['modal']('". $url ."')\" class=\"btn btn-xs btn-danger\" href=\"javascript:void(0)\">删除</a>";
                     }
             ]
@@ -56,13 +56,13 @@ $footer = Html::beginForm('', 'post', [
     'id' => 'real-delete',
 ]);
 
-$footer .= Html::button('取消',[
+$footer .= Html::button('取消', [
     'class' => 'btn btn-sm btn-default',
     'data-dismiss' => 'modal',
     'type' => 'button'
 ]);
 
-$footer .= Html::button('确认删除',[
+$footer .= Html::button('确认删除', [
     'class' => 'btn btn-sm btn-danger',
 ]);
 

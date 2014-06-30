@@ -14,7 +14,7 @@ include("_nav.php");
                 ['categoryId'=>0, 'label' => '所有分类', 'url' => ['/site/index']],
             ];
             $categories = Category::getCategories();
-            foreach($categories as $category) {
+            foreach ($categories as $category) {
                 $categories_array[] = [
                     'categoryId'=>$category['id'],
                     'label'=>$category['name'],
@@ -24,17 +24,16 @@ include("_nav.php");
             echo Sidebar::widget([
                 'title'=>'文章分类',
                 'items'=>$categories_array,
-                'handleActive'=> function($id) {
-                        $currentId = 0;
-                        if (isset($_GET['category_id'])) {
-                            $currentId = intval($_GET['category_id']);
-                        }
-                        return $currentId == $id;
+                'handleActive'=> function ($id) {
+                    $currentId = 0;
+                    if (isset($_GET['category_id'])) {
+                        $currentId = intval($_GET['category_id']);
                     }
+                    return $currentId == $id;
+                }
             ]);
             ?>
         </div>
     </div>
 <?php
 $this->endContent();
-?>

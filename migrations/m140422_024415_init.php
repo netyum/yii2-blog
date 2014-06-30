@@ -2,6 +2,7 @@
 
 use yii\db\Schema;
 use Carbon\Carbon;
+
 class m140422_024415_init extends \yii\db\Migration
 {
     public function safeUp()
@@ -119,9 +120,12 @@ class m140422_024415_init extends \yii\db\Migration
     public function safeDown()
     {
         $tables = array('activation', 'article', 'category', 'comment', 'password_reminder', 'user');
-        foreach($tables as $table) {
+        foreach ($tables as $table) {
             $tablename = '{{%'. $table .'}}';
-            try { $this->dropTable($tablename); } catch (Exception $e) {}
+            try {
+                $this->dropTable($tablename);
+            } catch (Exception $e) {
+            }
         }
     }
 }

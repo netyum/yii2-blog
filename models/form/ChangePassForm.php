@@ -62,7 +62,8 @@ class ChangePassForm extends Model
      * 修改密码
      * @return bool
      */
-    public function changePassword() {
+    public function changePassword()
+    {
         $id = Yii::$app->user->identity->id;
         $user = User::findOne($id);
         if (is_null($user)) {
@@ -72,5 +73,4 @@ class ChangePassForm extends Model
         $user->password = $user->generatePassword($this->password);
         return $user->save(false);
     }
-
 }

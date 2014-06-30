@@ -36,7 +36,8 @@ class PortraitForm extends Model
     }
 
 
-    public function changePortrait(){
+    public function changePortrait()
+    {
 
         $user = User::findOne(Yii::$app->user->identity->id);
         if (is_null($user)) {

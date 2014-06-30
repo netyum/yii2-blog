@@ -21,7 +21,9 @@ class StringHelper extends \yii\helpers\StringHelper
      */
     public static function limit($value, $limit = 100, $end = '...')
     {
-        if (mb_strlen($value) <= $limit) return $value;
+        if (mb_strlen($value) <= $limit) {
+            return $value;
+        }
 
         return rtrim(mb_substr($value, 0, $limit, 'UTF-8')).$end;
     }
@@ -42,13 +44,17 @@ class StringHelper extends \yii\helpers\StringHelper
         preg_match_all('#</([a-z]+)>#iU', $html, $result);
         $closedtags = $result[1];
         // 计算关闭开启标签数量，如果相同就返回html数据
-        if (count($closedtags) === count($openedtags)) return $html;
+        if (count($closedtags) === count($openedtags)) {
+            return $html;
+        }
         // 反向排序数组，将最后一个开启的标签放在最前面
         $openedtags = array_reverse($openedtags);
         // 遍历开启标签数组
         foreach ($openedtags as $key => $value) {
             // 跳过无需闭合的标签
-            if (in_array($value, $arr_single_tags)) continue;
+            if (in_array($value, $arr_single_tags)) {
+                continue;
+            }
             // 开始补全
             if (in_array($value, $closedtags)) {
                 unset($closedtags[array_search($value, $closedtags)]);
@@ -62,8 +68,9 @@ class StringHelper extends \yii\helpers\StringHelper
     public static function friendlyDate($theDate)
     {
         // 获取待处理的日期对象
-        if (! $theDate instanceof \Carbon\Carbon)
+        if (! $theDate instanceof \Carbon\Carbon) {
             $theDate = \Carbon\Carbon::createFromTimestamp(strtotime($theDate));
+        }
         // 取得英文日期描述
         $friendlyDateString = $theDate->diffForHumans(\Carbon\Carbon::now());
         // 本地化
@@ -84,12 +91,10 @@ class StringHelper extends \yii\helpers\StringHelper
      */
     public static function random($length = 16)
     {
-        if (function_exists('openssl_random_pseudo_bytes'))
-        {
+        if (function_exists('openssl_random_pseudo_bytes')) {
             $bytes = openssl_random_pseudo_bytes($length * 2);
 
-            if ($bytes === false)
-            {
+            if ($bytes === false) {
                 throw new \RuntimeException('Unable to generate random string.');
             }
 

@@ -73,7 +73,8 @@ class SignUpForm extends Model
         return false;
     }
 
-    public function resetPassword() {
+    public function resetPassword()
+    {
         if ($this->validate()) {
             $user = User::findByEmail($this->email, true);
             if (is_null($user)) {
@@ -87,5 +88,4 @@ class SignUpForm extends Model
         $this->addError('password', '重置密码失败');
         return false;
     }
-
 }

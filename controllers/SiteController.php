@@ -8,19 +8,17 @@ use \yii\web\Controller;
 use \yii\web\HttpException;
 use \yii\data\Pagination;
 use \yii\web\VerbFilter;
+use \yii\web\NotFoundHttpException;
 use app\models\ar\Comment;
 use app\models\ar\Article;
-
 use \Carbon\Carbon;
-
-
 
 class SiteController extends Controller
 {
 
     public $layout = '@app/views/layouts/site';
 
-    public function actionIndex($category_id="")
+    public function actionIndex($category_id = "")
     {
         $query = Article::find();
         if (intval($category_id) != 0) {
@@ -43,14 +41,16 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionView($slug) {
+    public function actionView($slug)
+    {
 
         $model = new Comment;
         if ($model->load(Yii::$app->request->post())) {
             $model->created_at = new Carbon();
             $model->updated_at = new Carbon();
             $model->user_id = Yii::$app->user->identity->id;
-            if ( $model->save() ) {
+
+            if ($model->save()) {
                 $model->article->updateAllCounters(['comments_count'=>1]);
                 return $this->redirect(['view', 'slug' => $slug]);
             }
@@ -66,5 +66,4 @@ class SiteController extends Controller
            'model' => $model
         ]);
     }
-
 }

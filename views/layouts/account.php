@@ -12,4 +12,3 @@ include("_account_nav.php");
 
 <?php
 $this->endContent();
-?>

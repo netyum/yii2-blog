@@ -17,7 +17,8 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     }
 
 
-    public function beforeSave($insert) {
+    public function beforeSave($insert)
+    {
         if (parent::beforeSave($insert)) {
             $this->updated_at = new Carbon;
             if ($this->isNewRecord) {
@@ -98,7 +99,8 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
      * @param $size
      * @return string
      */
-    protected function getIdenticon($size) {
+    protected function getIdenticon($size)
+    {
         $identicon = new \Identicon\Identicon;
         return $identicon->getImageDataUri($this->email, $size);
     }
@@ -108,12 +110,12 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
      * @param string $size
      * @return string
      */
-    protected function getPortrait($size='') {
+    protected function getPortrait($size = '')
+    {
         $path = Yii::getAlias("@web/");
         if ($size=='') {
             $img = $path.'portrait/'.$this->portrait;
-        }
-        else {
+        } else {
             $img = $path.'portrait/'. $size .'/'. $this->portrait;
         }
         return $img;
@@ -124,20 +126,20 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
      * @param bool $isModel
      * @return null|static
      */
-    public static function findByEmail($email, $isModel=false)
+    public static function findByEmail($email)
     {
         $user = self::findOne(['email'=>$email]);
 
         if ($user) {
-            if ($isModel) return $user;
-            else return new static($user);
-        }
-        else
+            return $user;
+        } else {
             return null;
+        }
     }
 
 
-    public function getIsAdmin() {
+    public function getIsAdmin()
+    {
         return $this->is_admin == 1;
     }
 
@@ -178,16 +180,16 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     {
         $user = self::findOne($id);
         if ($user) {
-            return new static($user);
-        }
-        else
+            return $user;
+        } else {
             return null;
+        }
     }
 
     /**
      * @inheritdoc
      */
-    public static function findIdentityByAccessToken($token)
+    public static function findIdentityByAccessToken($token, $type = null)
     {
         return null;
     }
@@ -200,5 +202,4 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     {
         return null;
     }
-
 }

@@ -4,6 +4,7 @@ namespace app\models\ar;
 
 use \Yii;
 use \Carbon\Carbon;
+
 /**
  * This is the model class for table "yii2_category".
  *
@@ -24,7 +25,8 @@ class Category extends \yii\db\ActiveRecord
     }
 
 
-    public function beforeSave($insert) {
+    public function beforeSave($insert)
+    {
         if (parent::beforeSave($insert)) {
             $this->updated_at = new Carbon;
             if ($this->isNewRecord) {
@@ -64,10 +66,10 @@ class Category extends \yii\db\ActiveRecord
     }
 
 
-    public static function getCategories() {
+    public static function getCategories()
+    {
         $sql = "SELECT id, name FROM {{%category}} ORDER BY sort_order ASC";
         $categories = Yii::$app->db->createCommand($sql)->queryAll();
         return $categories;
     }
-
 }

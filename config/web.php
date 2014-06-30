@@ -49,6 +49,7 @@ $config = [
             'loginUrl' => ['auth/sign-in']
         ],
         'errorHandler' => [
+            'class' => 'yii\web\ErrorHandler',
             'errorAction' => 'auth/error',
         ],
         'mail' => $mail,
@@ -69,11 +70,12 @@ $config = [
 if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment
     $config['bootstrap'][] = 'debug';
-    $config['modules']['debug'] = 'yii\debug\Module';
+    $config['modules']['debug']['class'] = 'yii\debug\Module';
+    $config['modules']['debug']['allowedIPs'] = ['*'];
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = 'yii\gii\Module';
-}
-else {
+ 
+} else {
     $config['components']['urlManager'] = [
         'enablePrettyUrl' => true,
         'showScriptName' => false,

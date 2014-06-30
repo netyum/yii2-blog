@@ -22,8 +22,7 @@ if (Yii::$app->user->isGuest) {
         ['label' => '登录', 'url' => ['/auth/sign-in']],
         ['label' => '注册', 'url' => ['/auth/sign-up']]
     ];
-}
-elseif (!Yii::$app->user->identity->isAdmin) {
+} elseif (!Yii::$app->user->identity->isAdmin) {
     $items = [
         [
             'label' => '[ ' . Yii::$app->user->identity->email . '] ',
@@ -34,8 +33,7 @@ elseif (!Yii::$app->user->identity->isAdmin) {
             ]
         ]
     ];
-}
-elseif (Yii::$app->user->identity->isAdmin) {
+} elseif (Yii::$app->user->identity->isAdmin) {
     $items = [
         [
             'label' => '[ ' . Yii::$app->user->identity->email . '] ',

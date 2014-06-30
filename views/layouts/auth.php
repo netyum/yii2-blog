@@ -12,4 +12,3 @@ include("_nav.php");
 
 <?php
 $this->endContent();
-?>

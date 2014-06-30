@@ -2,6 +2,7 @@
 use \yii\helpers\Html;
 use app\assets\AppAsset;
 use app\widgets\Sidebar;
+
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -26,4 +27,5 @@ AppAsset::register($this);
 <?php $this->endBody() ?>
 </body>
 </html>
-<?php $this->endPage() ?>
+<?php
+$this->endPage();

@@ -3,6 +3,7 @@
 namespace app\models\ar;
 
 use app\models\User;
+
 /**
  * This is the model class for table "yii2_comment".
  *
@@ -62,7 +63,8 @@ class Comment extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getUser() {
+    public function getUser()
+    {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
 }

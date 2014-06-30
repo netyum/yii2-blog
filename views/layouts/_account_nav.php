@@ -30,8 +30,7 @@ if (!Yii::$app->user->identity->isAdmin) {
             ]
         ]
     ];
-}
-elseif (Yii::$app->user->identity->isAdmin) {
+} elseif (Yii::$app->user->identity->isAdmin) {
     $items = [
         [
             'label' => '[ ' . Yii::$app->user->identity->email . '] ',

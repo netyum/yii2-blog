@@ -22,20 +22,20 @@ echo GridView::widget([
     'columns' => [
         [
             'attribute'=>'is_admin',
-            'value' => function($model, $index, $widget) {
+            'value' => function ($model, $index, $widget) {
                 return $model->is_admin==1 ? '管理员' : '普通用户';
             }
         ],
         'email:email',
         [
             'attribute' => 'created_at',
-            'value' => function($model, $index, $widget) {
+            'value' => function ($model, $index, $widget) {
                 return $model->created_at.' ('. app\helpers\StringHelper::friendlyDate($model->created_at).')';
             }
         ],
         [
             'attribute' => 'signin_at',
-            'value' => function($model, $index, $widget) {
+            'value' => function ($model, $index, $widget) {
                 return $model->signin_at ?
                             $model->signin_at.' ('. app\helpers\StringHelper::friendlyDate($model->created_at).')' :
                             '（新账号尚未登录）';
@@ -47,7 +47,7 @@ echo GridView::widget([
             'class' => '\yii\grid\ActionColumn',
             'template'=>'{delete}',
             'buttons' => [
-                'delete' => function($url, $model) {
+                'delete' => function ($url, $model) {
                     if ($model->is_admin == 0) {
                         return "<a onclick=\"window['modal']('". $url ."')\" class=\"btn btn-xs btn-danger\" href=\"javascript:void(0)\">删除</a>";
                     }
@@ -61,13 +61,13 @@ $footer = Html::beginForm('', 'post', [
 'id' => 'real-delete',
 ]);
 
-$footer .= Html::button('取消',[
+$footer .= Html::button('取消', [
 'class' => 'btn btn-sm btn-default',
 'data-dismiss' => 'modal',
 'type' => 'button'
 ]);
 
-$footer .= Html::button('确认删除',[
+$footer .= Html::button('确认删除', [
 'class' => 'btn btn-sm btn-danger',
 ]);
 

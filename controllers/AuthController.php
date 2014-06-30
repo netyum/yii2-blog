@@ -12,9 +12,7 @@ use app\models\form\SignUpForm;
 use app\models\form\ForgotPassForm;
 use app\models\User;
 use app\models\ar\Activation;
-
 use \Carbon\Carbon;
-
 
 class AuthController extends \yii\web\Controller
 {
@@ -175,7 +173,7 @@ class AuthController extends \yii\web\Controller
             unset($passwordReminder);
             return $this->goHome();
         }
-        return $this->render('reset-password',[
+        return $this->render('reset-password', [
             'model' => $model
         ]);
     }
@@ -189,5 +187,4 @@ class AuthController extends \yii\web\Controller
         Yii::$app->user->logout();
         return $this->goHome();
     }
-
 }

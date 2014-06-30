@@ -41,7 +41,8 @@ class ForgotPassForm extends Model
     /**
      * 忘了密码
      */
-    public function forgot() {
+    public function forgot()
+    {
         if ($this->validate()) {
             $passwordReminder = new PasswordReminder;
             $passwordReminder->email = $this->email;

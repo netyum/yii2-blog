@@ -72,4 +72,5 @@ echo Tabs::widget([
 
 <?php echo Html::submitButton('提 交', ['class' => 'btn btn-success']);?>
 
-<?php ActiveForm::end();?>
+<?php
+ActiveForm::end();

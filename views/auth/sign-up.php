@@ -59,7 +59,7 @@ echo $form->field($model, 'email', ['template' => "{input}"])->textInput([
     'autofocus' => true
 ]);
 
-$hint = Html::button('?',[
+$hint = Html::button('?', [
     'data-content' => '请使用字母、数字、下划线、中划线。长度在6-16位之间。',
     'class' => 'btn btn-default',
     'data-toggle' => 'popover',
@@ -85,6 +85,7 @@ echo $form->field($model, 'password_repeat', ['template' => "{input}"])->passwor
 if ($model->getErrors()) :
     $errors = $model->getErrors();
     $error = array_shift($errors);
+
 ?>
 <div class="alert alert-warning alert-dismissable">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -95,4 +96,5 @@ endif;
 ?>
 
 <?php echo Html::submitButton('注 册', ['class' => 'btn btn-lg btn-primary btn-block']) ?>
-<?php ActiveForm::end(); ?>
+<?php
+ActiveForm::end();

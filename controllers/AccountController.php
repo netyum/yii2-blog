@@ -48,12 +48,11 @@ class AccountController extends \yii\web\Controller
             if ($model->changePassword()) {
                 Yii::$app->session->setFlash('changepassword', "密码修改成功");
                 return $this->redirect(['account/change-password']);
-            }
-            else {
+            } else {
                 $model->addError('password_ord', "密码修改失败");
             }
         }
-        return $this->render('change-password',[
+        return $this->render('change-password', [
            'model' => $model
         ]);
     }
@@ -63,7 +62,7 @@ class AccountController extends \yii\web\Controller
      * @param string $id
      * @return string|\yii\web\Response
      */
-    public function actionMyComment($id="")
+    public function actionMyComment($id = "")
     {
         if (Yii::$app->request->isPost && $id!='') {
             $model = Comment::findOne($id);
@@ -71,8 +70,7 @@ class AccountController extends \yii\web\Controller
             if ($model->user_id == Yii::$app->user->identity->id) {
                 Yii::$app->session->setFlash('my_comment_delete_success', '评论删除成功');
                 $model->delete();
-            }
-            else {
+            } else {
                 Yii::$app->session->setFlash('my_comment_delete_error', '评论删除失败');
             }
             return $this->redirect(['account/my-comment']);
@@ -105,5 +103,4 @@ class AccountController extends \yii\web\Controller
             'model' => $model
         ]);
     }
-
 }

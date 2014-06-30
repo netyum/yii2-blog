@@ -34,7 +34,8 @@ class Article extends \yii\db\ActiveRecord
         return '{{%article}}';
     }
 
-    public function beforeSave($insert) {
+    public function beforeSave($insert)
+    {
         if (parent::beforeSave($insert)) {
             $this->updated_at = new Carbon;
             if ($this->isNewRecord) {
@@ -94,15 +95,16 @@ class Article extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getComments() {
+    public function getComments()
+    {
         return $this->hasMany(Comment::className(), ['article_id' => 'id']);
     }
 
     /**
      * @return \yii\db\ActiveQueryInterface
      */
-    public function getUser() {
+    public function getUser()
+    {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
 }
-
