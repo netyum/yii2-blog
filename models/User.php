@@ -132,12 +132,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 
         if ($user) {
             return $user;
-<<<<<<< HEAD
         } else {
-=======
-        }
-        else
->>>>>>> 5bc81d47c6b3c47bb2ea947f3ade296f260a2876
             return null;
         }
     }
