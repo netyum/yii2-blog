@@ -11,6 +11,12 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'app\commands',
     'extensions' => require(__DIR__ . '/../vendor/yiisoft/extensions.php'),
+    'controllerMap' => [
+        'fixture' => [
+            'class' => 'yii\console\controllers\FixtureController',
+            'globalFixtures' => ['tests\unit\fixtures\InitDb'],
+        ],
+    ],
     'components' => [
         'cache' => [
             'class' => 'yii\caching\FileCache',
